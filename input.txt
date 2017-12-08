@@ -1,0 +1,14 @@
+Automaton = {
+    States = { q1, q2, q3 },
+    InitialStates = { q1 },
+    FinalStates = { q3 },
+    Alphabet = { a, b, c, d, e, f, g },
+    TransitionRelation = {
+        (q1, a, q1),
+        (q1, b, q2),
+        (q1, c, q3),
+        (q2, d, q2),
+        (q2, e, q3),
+        (q3, f, q3)
+    }
+}
