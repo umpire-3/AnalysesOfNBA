@@ -51,7 +51,7 @@ class AssociativeExpression(Expression):
     def from_terminal_seq(cls, seq):
         if len(seq) == 1:
             return Terminal(seq[0])
-        return cls(*(Terminal(terminal) for terminal in seq))
+        return cls(*map(Terminal, seq))
 
 
 class Terminal(UnaryExpression):
@@ -65,14 +65,14 @@ class Union(AssociativeExpression):
     Priority = 0
 
     def __str__(self):
-        return ' + '.join(operand for operand in self._stringify_operands())
+        return ' + '.join(self._stringify_operands())
 
 
 class Concat(AssociativeExpression):
     Priority = 1
 
     def __str__(self):
-        return ''.join(operand for operand in self._stringify_operands())
+        return ''.join(self._stringify_operands())
 
 
 class Iteration(UnaryExpression):

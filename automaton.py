@@ -54,13 +54,3 @@ class Automaton:
 
     def is_final(self, state):
         return self._states[state] in self._final_states
-
-    def get_seq_by(self, s1, s2):
-        n1 = self.state(s1)
-        n2 = self.state(s2)
-        seq = [n1]
-        for i in range(self.size()):
-            if i not in (n1, n2):
-                seq.append(i)
-        seq.append(n2)
-        return seq
